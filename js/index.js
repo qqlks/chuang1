@@ -3,7 +3,190 @@ $(".swiper-wrapper").css({
 	width:$(window).width(),
 	height:$(window).height()
 })
-var mySwiper = new Swiper ('.swiper-container',{
+//预加载
+var imgArr=[
+	"img/music.png",
+	"img/jiantou.png",
+	"img/27.png",
+	"img/28.png",
+	"img/29.png",
+	"img/3.png",
+	"img/4.png",
+	"img/5.png",
+	"img/6.png",
+	"img/7.png",
+	"img/8.png",
+	"img/11.png",
+	"img/12.png",
+	"img/15.png",
+	"img/19.png",
+	"img/21.png",
+	"img/diqiu/1.jpg",
+	"img/diqiu/2.jpg",
+	"img/diqiu/3.jpg",
+	"img/diqiu/4.jpg",
+	"img/diqiu/5.jpg",
+	"img/diqiu/6.jpg",
+	"img/diqiu/7.jpg",
+	"img/diqiu/8.jpg",
+	"img/diqiu/9.jpg",
+	"img/diqiu/10.jpg",
+	"img/diqiu/11.jpg",
+	"img/diqiu/12.jpg",
+	"img/diqiu/13.jpg",
+	"img/diqiu/14.jpg",
+	"img/diqiu/15.jpg",
+	"img/diqiu/16.jpg",
+	"img/diqiu/17.jpg",
+	"img/diqiu/18.jpg",
+	"img/diqiu/19.jpg",
+	"img/diqiu/20.jpg",
+	"img/diqiu/21.jpg",
+	"img/diqiu/22.jpg",
+	"img/diqiu/23.jpg",
+	"img/diqiu/24.jpg",
+	"img/diqiu/25.jpg",
+	"img/diqiu/26.jpg",
+	"img/diqiu/27.jpg",
+	"img/diqiu/28.jpg",
+	"img/diqiu/29.jpg",
+	"img/diqiu/30.jpg",
+	"img/diqiu/31.jpg",
+	"img/diqiu/32.jpg",
+	"img/diqiu/33.jpg",
+	"img/diqiu/34.jpg",
+	"img/diqiu/35.jpg",
+	"img/diqiu/36.jpg",
+	"img/diqiu/37.jpg",
+	"img/diqiu/38.jpg",
+	"img/diqiu/39.jpg",
+	"img/diqiu/40.jpg",
+	"img/diqiu/41.jpg",
+	"img/diqiu/42.jpg",
+	"img/diqiu/43.jpg",
+	"img/diqiu/44.jpg",
+	"img/diqiu/45.jpg",
+	"img/diqiu/46.jpg",
+	"img/diqiu/47.jpg",
+	"img/36.png",
+	"img/37.png",
+	"img/38.png",
+	"img/39.png",
+	"img/40.png",
+	"img/41.png",
+	"img/42.png",
+	"img/45.png",
+	"img/P4/ren1.png",
+	"img/P4/ren2.png",
+	"img/P4/ren3.png",
+	"img/P4/ren4.png",
+	"img/P4/ren5.png",
+	"img/P4/ren6.png",
+	"img/P4/ren7.png",
+	"img/P4/ren8.png",
+	"img/P4/椭圆 3 副本 9.png",
+	"img/P4/椭圆 3 副本 10.png",
+	"img/P4/椭圆 3 副本 11.png",
+	"img/P4/椭圆 3 副本 12.png",
+	"img/P4/椭圆 3 副本 13.png",
+	"img/P4/椭圆 3 副本 14.png",
+	"img/P4/椭圆 3 副本 15.png",
+	"img/P4/椭圆 3 副本 16.png",
+	"img/P4/椭圆 3 副本 17.png",
+	"img/P4/椭圆 3 副本 18.png",
+	"img/P4/椭圆 3 副本 19.png",
+	"img/P4/椭圆 3 副本 20.png",
+	"img/P4/椭圆 3 副本 21.png",
+	"img/P4/椭圆 4.png",
+	"img/P4/椭圆 5 副本 2.png",
+	"img/P4/椭圆 5 副本 3.png",
+	"img/P4/椭圆 5.png",
+	"img/P5/m1.png",
+	"img/P5/m2.png",
+	"img/P5/m3.png",
+	"img/P5/m4.png",
+	"img/P5/m5.png",
+	"img/P5/m6.png",
+	"img/P5/m7.png",
+	"img/P5/m8.png",
+	"img/P5/m9.png",
+	"img/P5/m10.png",
+	"img/P5/yingzi.png",
+	"img/P5/men1.png",
+	"img/P5/men2.png",
+	"img/P5/men3.png",
+	"img/P5/men4.png",
+	"img/P5/men5.png",
+	"img/P5/men6.png",
+	"img/P5/men7.png",
+	"img/P5/men8.png",
+	"img/P5/men9.png",
+	"img/P5/men10.png",
+	"img/s1.png",
+	"img/s2.png",
+	"img/s3.png",
+	"img/s4.png",
+	"img/s5.png",
+	"img/gaozhen.png",
+	"img/huaping.png",
+	"img/tuhongchuan.png",
+	"img/xingwenning.png",
+	"img/jiangde.png",
+	"img/wangping.png",
+	"img/p8-1.png",
+	"img/p8-2.png",
+	"img/p8-3.png",
+	"img/p8-4.png",
+	"img/p8-5.png",
+	"img/p8-6.png",
+	"img/p8-7.png",
+	"img/p8-8.png",
+	"img/p8-9.png",
+	"img/p8-10.png",
+	"img/p8-11.png",
+	"img/p8-12.png",
+	"img/p9-1.png",
+	"img/p9-2.png",
+	"img/p9-4.png",
+	"img/p9-6.png",
+	"img/p9-7.png",
+	"img/aa.gif"
+];
+var Imgs=[];
+var n=0;
+for(var i=0;i<imgArr.length;i++){
+	var makeImg=new Image();
+	makeImg.src=imgArr[i];
+	makeImg.onload=function(){
+		Imgs.push(this);
+//		console.log(Imgs.length);
+		n=parseInt(Imgs.length * 100 / imgArr.length);
+		$(".num").html(n+"%");
+		$(".progress").css({
+			width:n+"%"
+		});
+		if(n>=100){
+			$(".outer").remove();
+			main();
+		}
+	}
+}
+
+function main(){
+	var audioEle=document.getElementsByTagName("audio");
+var flag=true;
+$(".slide_music").click(function(){
+	if(flag){
+		audioEle[0].pause();
+		$(".slide_music").removeClass("music_rotate");
+		flag=false;
+	}else{
+		audioEle[0].play();
+		$(".slide_music").addClass("music_rotate");
+		flag=true;
+	}
+})
+	var mySwiper = new Swiper ('.swiper-container',{
 	direction: 'vertical',//纵向
     freeMode:false,
    	onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
@@ -76,7 +259,7 @@ var mySwiper = new Swiper ('.swiper-container',{
 				top:'3.76rem',
 				height:'1.69rem',
 				width:'1.69rem'
-			},2000,);
+			},2000);
 			$(".slide_4_ty6").animate({
 				left:'0.36rem',
 				top:'0.96rem',
@@ -282,16 +465,6 @@ var mySwiper = new Swiper ('.swiper-container',{
  	swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
   	} 
 }) 
-var audioEle=document.getElementsByTagName("audio");
-var flag=true;
-$(".slide_music").click(function(){
-	if(flag){
-		audioEle[0].pause();
-		$(".slide_music").removeClass("music_rotate");
-		flag=false;
-	}else{
-		audioEle[0].play();
-		$(".slide_music").addClass("music_rotate");
-		flag=true;
-	}
-})
+
+}
+
